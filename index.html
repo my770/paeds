@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Paediatric Anaesthesia: A comprehensive tool for managing infusions, airway, and BMI calculations in paediatric care. Includes infusion dose calculations, drug information, and medical references for efficient and safe paediatric anaesthesia management.">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" type="image/gif">
+    <title>Paediatric Anaesthesia</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/index.html"><h5>PAEDIATRIC ANAESTEHSIA</h5></a>
+                <div class="d-flex ms-auto">
+                    <a href="https://github.com/my770/paeds" class="btn btn-outline-dark me-2" target="blank" title="GitHub Repository">
+                        <h3><i class="bi bi-github"></i></h3>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-infusions-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-infusions" type="button" role="tab" aria-controls="nav-infusions"
+                    aria-selected="true">
+                    Infusions
+                </button>
+                <button class="nav-link" id="nav-airway-tab" data-bs-toggle="tab" data-bs-target="#nav-airway"
+                    type="button" role="tab" aria-controls="nav-airway" aria-selected="false">
+                    Airway
+                </button>
+                <button class="nav-link" id="nav-bmi-tab" data-bs-toggle="tab" data-bs-target="#nav-bmi" type="button"
+                    role="tab" aria-controls="nav-bmi" aria-selected="false">
+                    BMI
+                </button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-infusions" role="tabpanel"
+                aria-labelledby="nav-infusions-tab" tabindex="0">
+                <hr>
+                <form class="row row-cols-lg-auto g-3 align-items-center ms-3" id="weightForm">
+                    <div class="col-12">
+                        <label class="visually-hidden" for="weight">Enter Weight</label>
+                        <div class="input-group">
+                            <div class="input-group-text">Enter Body Weight (Kg)</div>
+                            <input type="text" class="form-control" id="weight" placeholder="e.g. 10.3">
+                        </div>
+                    </div>
+                
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </form>
+                <hr>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed custom-active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                <div class="me-3 opioids"></div>
+                                <h5>Opioids</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Drug</th>
+                                                <th>Dose</th>
+                                                <th>Strength (50 ml)<sup>*</sup></th>
+                                                <th>Infusion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Morphine</td>
+                                                <td>10 - 60 &micro;/kg/hr</td>
+                                                <td id="morphineStrength">1 mg/kg (Max 50 mg)</td>
+                                                <td>0.5 - 3 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fentanyl</td>
+                                                <td>0.25 - 3 &micro;/kg/hr</td>
+                                                <td id="fentanylStrength">25 &micro;/kg (Max 1000 &micro;g)</td>
+                                                <td>0.5 - 6 ml/hr</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><sup>*</sup> Can dilute in sodium chloride 0.9% or dextrose 5%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed custom-active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="me-3 sedatives"></div>
+                                <h5>Sedatives</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Drug</th>
+                                                <th>Dose</th>
+                                                <th>Strength (50 ml)<sup>*</sup></th>
+                                                <th>Infusion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><span class="midaz-star">★</span>Midazolam</td>
+                                                <td>30-200 &micro;/kg/hr</td>
+                                                <td id="midazolamStrength">5 mg/kg</td>
+                                                <td>0.3 - 2 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="baby-icon">👶</span>Ketamine (BW up to 5 kg)</td>
+                                                <td>5 - 40 &micro;/kg/min</td>
+                                                <td>100 mg (2 mg/ml)</td>
+                                                <td id="ketamine2Rate">0.15 - 1.2 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="child-icon">👩🏽</span>Ketamine (BW more than 5 kg)</td>
+                                                <td>5 - 40 &micro;/kg/min</td>
+                                                <td>10 mg/ml (neat)</td>
+                                                <td id="ketamine10Rate">0.06 - 0.24 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="baby-icon">👶</span>Dexmedetomidine (BW up to 5 kg)</td>
+                                                <td>0.2 - 1.4 &micro;/kg/hr</td>
+                                                <td>50 mg (1 &micro;g/ml)</td>
+                                                <td id="dex1Rate">0.2 - 1.4 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="child-icon">👩🏽</span>Dexmedetomidine (BW more than 5 kg)</td>
+                                                <td>0.2 - 1.4 &micro;/kg/hr</td>
+                                                <td>200 mg (4 &micro;g/ml)</td>
+                                                <td id="dex4Rate">0.05 - 0.35 ml/kg/hr</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><sup>*</sup> Can dilute in sodium chloride 0.9% or dextrose 5%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed custom-active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                aria-expanded="false" aria-controls="collapseThree">
+                                <div class="me-3 relaxants"></div>
+                                <h5>Relaxants</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Drug</th>
+                                                <th>Dose</th>
+                                                <th>Strength (50 ml)<sup>*</sup></th>
+                                                <th>Infusion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Atracurium</td>
+                                                <td>0.3 - 1 mg/kg/hr</td>
+                                                <td>10 mg/ml (neat)</td>
+                                                <td id="atracuriumRate">0.03 - 0.1 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rocuronium</td>
+                                                <td>0.3 - 1 mg/kg/hr</td>
+                                                <td>10 mg/ml (neat)</td>
+                                                <td id="rocuroniumRate">0.03 - 0.1 ml/kg/hr</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><sup>*</sup> Can dilute in sodium chloride 0.9% or dextrose 5%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed custom-active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                aria-expanded="false" aria-controls="collapseFour">
+                                <div class="me-3 pressors"></div>
+                                <h5>Pressors</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Drug</th>
+                                                <th>Dose</th>
+                                                <th>Strength (50 ml)<sup>*</sup></th>
+                                                <th>Infusion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Adrenaline (PERIPHERAL)</td>
+                                                <td>0.1 - 1 &micro;g/kg/min</td>
+                                                <td>1 mg</td>
+                                                <td id="adrenalineP">0.3 - 3 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Adrenaline (CENTRAL)</td>
+                                                <td>0.02 - 1 &micro;g/kg/min</td>
+                                                <td id="adrenalineC">0.3 mg/kg</td>
+                                                <td>0.2 - 10 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Noradrenaline (CENTRAL)</td>
+                                                <td>0.02 - 1 &micro;g/kg/min</td>
+                                                <td id="noradrenaline">0.3 mg/kg</td>
+                                                <td>0.2 - 10 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dopamine (PERIPHERAL)</td>
+                                                <td>1 - 20 &micro;g/kg/min</td>
+                                                <td>100 mg (2 mg/ml)</td>
+                                                <td id="dopamineP">0.03 - 0.6 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dopamine (CENTRAL)</td>
+                                                <td>1 - 20 &micro;g/kg/min</td>
+                                                <td id="dopamineC">3 mg/kg</td>
+                                                <td>1 - 20 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dobutamine (CENTRAL)</td>
+                                                <td>2 - 20 &micro;g/kg/min</td>
+                                                <td id="dobutamine">3 mg/kg</td>
+                                                <td>2 - 20 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Vasopressin (Argipressin)</td>
+                                                <td>0.006 - 0.12 units/kg/hr</td>
+                                                <td id="vasopressin">1.5 units/kg to <strong>25 ml</strong></td>
+                                                <td>0.1 - 2 ml/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Isoprenaline</td>
+                                                <td>0.02 - 1 &micro;g/kg/min</td>
+                                                <td>1 mg</td>
+                                                <td id="isoprenaline">0.06 - 3 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Milrinone</td>
+                                                <td>0.25 - 0.75 &micro;g/kg/min</td>
+                                                <td>10 mg to <strong>25 ml</strong></td>
+                                                <td id="milrinone">0.038 - 0.113 ml/kg/hr</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><sup>*</sup> Can dilute in sodium chloride 0.9% or dextrose 5%</p>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed custom-active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
+                                aria-expanded="false" aria-controls="collapseFive">
+                                <div class="me-3 dilators"></div>
+                                <h5>Dilators</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Drug</th>
+                                                <th>Dose</th>
+                                                <th>Strength (50 ml)<sup>*</sup></th>
+                                                <th>Infusion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Labetalol (PERIPHERAL)</td>
+                                                <td>1 - 3 mg/kg/hr</td>
+                                                <td>50 mg</td>
+                                                <td id="labetalolP">1 - 3 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Labetalol (CENTRAL)</td>
+                                                <td>1 - 3 mg/kg/hr</td>
+                                                <td>100 mg in 20 ml (neat)</td>
+                                                <td id="labetalolC">0.2 - 0.6 ml/kg/hour</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><sup>*</sup> Can dilute in sodium chloride 0.9% or dextrose 5%</p>
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed custom-active" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix"
+                                aria-expanded="false" aria-controls="collapseSix">
+                                <div class="me-3 msc"></div>
+                                <h5>Miscellaneous</h5>
+                            </button>
+                        </h2>
+                        <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>Drug</th>
+                                                <th>Dose</th>
+                                                <th>Strength (50 ml)<sup>*</sup></th>
+                                                <th>Infusion Rate</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Salbutamol (PERIPHERAL)</td>
+                                                <td>1 - 5 &micro;g/kg/min
+                                                    (<strong>Max 20 &micro;g/min</strong>)</td>
+                                                <td>10 mg</td>
+                                                <td id="salbutamolP">0.3 - 1.5 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Aminophylline (PERIPHERAL)</td>
+                                                <td>0.5 - 1mg/kg/hr</td>
+                                                <td>50 mg</td>
+                                                <td id="aminophylline">0.5 - 1 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dinoprostone (PGE2)</td>
+                                                <td>5 - 20 ng/kg/min</td>
+                                                <td>50 &micro;g</td>
+                                                <td id="pge2">0.3 - 1.2 ml/kg/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Furosemide</td>
+                                                <td>0.1 - 2 mg/kg/hr</td>
+                                                <td>250 mg (0.9% saline only)</td>
+                                                <td id="furosemide">0.02 - 0.4 ml/kg/hr</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <p><sup>*</sup> Can dilute in sodium chloride 0.9% or dextrose 5%</p>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="nav-airway" role="tabpanel" aria-labelledby="nav-airway-tab" tabindex="0">
+                ...
+            </div>
+            <div class="tab-pane fade" id="nav-bmi" role="tabpanel" aria-labelledby="nav-bmi-tab" tabindex="0">
+                ...
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+                .register("/sw.js")
+                .then(registration => {
+                    console.log("Service Worker registered with scope:", registration.scope);
+                })
+                .catch(error => {
+                    console.error("Service Worker registration failed:", error);
+                });
+        }
+    </script>
+</body>
+
+</html>

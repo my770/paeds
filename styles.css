@@ -1,0 +1,123 @@
+/* General body styling */
+body {
+  background-color: #f8f9fa; /* Light background color */
+  color: #343a40; /* Dark text color */
+}
+
+/* Tab styling */
+.nav-tabs .nav-link.active {
+  background-color: #198754; /* Bootstrap success color */
+  color: white;
+}
+
+.nav-tabs .nav-link {
+  color: #198754; /* Bootstrap success color */
+}
+
+.custom-active:not(.collapsed) {
+  background-color: #d4edda; /* Light green background color */
+  color: #155724; /* Dark green text color */
+}
+
+/* Override Bootstrap's blue borders for active accordion buttons */
+.accordion-button:not(.collapsed) {
+  background-color: #d4edda; /* Light green background */
+  color: #155724; /* Dark green text */
+  border-color: #d4edda; /* Match the green background */
+}
+
+/* Ensure the borders around the accordion button are consistent */
+.accordion-button {
+  border-color: #d4edda; /* Match the green color for inactive buttons too */
+}
+
+/* Remove the blue focus outline */
+.accordion-button:focus {
+  box-shadow: none; /* Remove focus ring */
+  border-color: #155724; /* Optional: Add a subtle dark green focus */
+}
+
+/* Anesthesia Color Codes */
+.opioids {
+  width: 20px;
+  height: 50px;
+  background-color: #71c5e8;
+  border-radius: 4px;
+}
+
+.sedatives {
+  background-color: #ffe800;
+  border-radius: 4px;
+  width: 20px;
+  height: 50px;
+}
+
+.relaxants {
+  background-color: #ff7477;
+  border-radius: 4px;
+  width: 20px;
+  height: 50px;
+}
+
+.pressors {
+  background-color: #d6bfdd;
+  border-radius: 4px;
+  width: 20px;
+  height: 50px;
+}
+
+.dilators {
+  background: repeating-linear-gradient(
+    -45deg,
+    #d6bfdd,
+    #d6bfdd 7px,
+    #ffffff 7px,
+    #ffffff 20px
+  );
+  border-radius: 4px;
+  width: 20px;
+  height: 50px;
+}
+
+.msc {
+  background-color: #ffffff;
+  border-radius: 4px;
+  width: 20px;
+  height: 50px;
+  border: 1px solid #000;
+}
+
+.midaz-star {
+  color: #ffc107; /* Bootstrap warning color */
+  font-size: 16px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.baby-icon,
+.child-icon {
+  color: #0d6efd; /* Bootstrap primary color */
+  font-size: 16px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+/* Table styling */
+.table-hover tbody tr:hover {
+  background-color: #e9ecef; /* Light hover color */
+}
+
+.table thead th {
+  background-color: #198754; /* Bootstrap success color */
+  color: white;
+}
+
+.table tbody td {
+  color: #343a40; /* Dark text color */
+}
+
+/* Button styling */
+button {
+  background-color: #198754; /* Bootstrap success color */
+  color: white;
+}

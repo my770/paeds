@@ -1,0 +1,37 @@
+{
+  "short_name": "PaedInfusion",
+  "name": "Paediatric Infusion App",
+  "description": "An application to calculate paediatric infusion rates.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "./icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./screenshot_wide.png",
+      "type": "image/png",
+      "sizes": "1920x1080",
+      "label": "Wide Screen View",
+      "form_factor": "wide"
+    },
+    {
+      "src": "./screenshot_narrow.png",
+      "type": "image/png",
+      "sizes": "1080x1920",
+      "label": "Narrow Screen View",
+      "form_factor": "narrow"
+    }
+  ]
+}
