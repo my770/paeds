@@ -1,12 +1,12 @@
 const CACHE_NAME = "paedinfusion-cache-v1";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/styles.css",
-  "/script.js",
-  "/manifest.json",
-  "/icon-192x192.png",
-  "/icon-512x512.png",
+  "/paeds/",
+  "/paeds/index.html",
+  "/paeds/styles.css",
+  "/paeds/script.js",
+  "/paeds/manifest.json",
+  "/paeds/icon-192x192.png",
+  "/paeds/icon-512x512.png",
 ];
 
 // Install event to cache resources
