@@ -8,26 +8,26 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "./paeds/icon-192x192.png",
+      "src": "/paeds/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "./paeds/icon-512x512.png",
+      "src": "/paeds/icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "screenshots": [
     {
-      "src": "./paeds;screenshot_wide.png",
+      "src": "/paeds/screenshot_wide.png",
       "type": "image/png",
       "sizes": "1920x1080",
       "label": "Wide Screen View",
       "form_factor": "wide"
     },
     {
-      "src": "./paeds/screenshot_narrow.png",
+      "src": "/paeds/screenshot_narrow.png",
       "type": "image/png",
       "sizes": "1080x1920",
       "label": "Narrow Screen View",
